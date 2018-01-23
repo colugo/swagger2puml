@@ -11,6 +11,35 @@ buildscript {
 		ext.plantuml = '7999'
 }
 
+dependencies {
+    testCompile "junit:junit:$junit"
+    compile "io.swagger:swagger-parser:$swaggerparser"
+    compile "com.github.spullara.mustache.java:compiler:$mustache"
+    compile "net.sourceforge.plantuml:plantuml:$plantuml"
+}
+
+
+mainClassName = 'com.kicksolutions.swagger.Swagger2PlantUML'
+
+repositories{
+	jcenter()
+}
+
+
+
+
+jar {
+    baseName = 'swagger2puml'
+		from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    version = '1.0'
+		manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'com.kicksolutions.swagger.Swagger2PlantUML'
+    )
+  }
+}
+
 sourceSets {
     main {
         java {
@@ -21,21 +50,6 @@ sourceSets {
         }
     }
 }
-
-mainClassName = 'com.kicksolutions.swagger.Swagger2PlantUML'
-
-repositories{
-	jcenter()
-}
-
-
-dependencies {
-    //testCompile "junit:junit:$junit"
-    compile "io.swagger:swagger-parser:$swaggerparser"
-    compile "com.github.spullara.mustache.java:compiler:$mustache"
-    compile "net.sourceforge.plantuml:plantuml:$plantuml"
-}
-
 
 run {
     if (project.hasProperty("appArgs")) {
