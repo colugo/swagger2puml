@@ -1,3 +1,12 @@
+# Changes in this fork
+- Gradle
+- remove note
+
+# Usage
+
+> $ gradle run -PappArgs="['-i','examples/swagger.yaml','-o','examples']"
+
+
 [![Build Status](https://travis-ci.org/kicksolutions/swagger2puml.svg?branch=master)](https://travis-ci.org/kicksolutions/swagger2puml)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.swagger/swagger-codegen-project/badge.svg?style=plastic)](https://oss.sonatype.org/#nexus-search;gav~io.github.kicksolutions~swagger-plantuml-core~~~)
 [![codecov](https://codecov.io/gh/kicksolutions/swagger2puml/branch/master/graph/badge.svg)](https://codecov.io/gh/kicksolutions/swagger2puml)
@@ -7,7 +16,7 @@
 Swagger to Puml convertion tool helps to generate Class Diagrams from Swagger Definition.
 
 This Project is based on Maven and plan to support Gradle also in future.
-Following are modules we currently have 
+Following are modules we currently have
 
 - swagger2puml-core
 - swagger2puml-maven
@@ -29,7 +38,7 @@ Create a new System Variable called GRAPHVIZ_DOT and point to dot.exe for window
 - Once the swagger.puml gets generated sucessfully it then calls [Plant UML] to generate swagger.svg
 
 
-## swagger2puml-core: 
+## swagger2puml-core:
 
 This utility takes Swagger Yaml as input and as response it generates swagger.puml and swagger.svg files as output.
 

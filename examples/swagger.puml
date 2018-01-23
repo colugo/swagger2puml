@@ -9,48 +9,48 @@ skinparam class {
 }
 
 class  Order {
-		 - id <b>:Int64</b> 
-		 - petId <b>:Int64</b> 
-		 - quantity <b>:Int32</b> 
-		 - shipDate <b>:Date-time</b> 
-		 - status <b>:String</b> 
-		 - complete <b>:Boolean</b> 
+	 - id <b>:Int64</b>
+	 - petId <b>:Int64</b>
+	 - quantity <b>:Int32</b>
+	 - shipDate <b>:Date-time</b>
+	 - status <b>:String</b>
+	 - complete <b>:Boolean</b>
 }
 
 class  Category {
-		 - id <b>:Int64</b> 
-		 - name <b>:String</b> 
+	 - id <b>:Int64</b>
+	 - name <b>:String</b>
 }
 
 class  User {
-		 - id <b>:Int64</b> 
-		 - username <b>:String</b> 
-		 - firstName <b>:String</b> 
-		 - lastName <b>:String</b> 
-		 - email <b>:String</b> 
-		 - password <b>:String</b> 
-		 - phone <b>:String</b> 
-		 - userStatus <b>:Int32</b> 
+	 - id <b>:Int64</b>
+	 - username <b>:String</b>
+	 - firstName <b>:String</b>
+	 - lastName <b>:String</b>
+	 - email <b>:String</b>
+	 - password <b>:String</b>
+	 - phone <b>:String</b>
+	 - userStatus <b>:Int32</b>
 }
 
 class  Tag {
-		 - id <b>:Int64</b> 
-		 - name <b>:String</b> 
+	 - id <b>:Int64</b>
+	 - name <b>:String</b>
 }
 
 class  Pet {
-		 - id <b>:Int64</b> 
-		 - category <b>:Category[]</b> 
-		 - name <b>:String</b> 
-		 - photoUrls <b>:String[]</b> 
-		 - tags <b>:Tag[]</b> 
-		 - status <b>:String</b> 
+	 - id <b>:Int64</b>
+	 - category <b>:Category[]</b>
+	 - name <b>:String</b>
+	 - photoUrls <b>:String[]</b>
+	 - tags <b>:Tag[]</b>
+	 - status <b>:String</b>
 }
 
 class  ApiResponse {
-		 - code <b>:Int32</b> 
-		 - type <b>:String</b> 
-		 - message <b>:String</b> 
+	 - code <b>:Int32</b>
+	 - type <b>:String</b>
+	 - message <b>:String</b>
 }
 
 
@@ -135,17 +135,12 @@ interface UserApi {
 }
 
 
-Pet  *-- "0..*"  Category 
-Pet  *-- "0..*"  Tag 
-PetApi -->    Pet 
-PetApi -->    ApiResponse 
-StoreApi -->    Order 
-UserApi -->    User 
-
-note as N1
-  Name: <b><color:royalBlue>Swagger Petstore</color>
-  Version: <b><color:royalBlue>1.0.0</color>
-end note
+Pet  *-- "0..*"  Category
+Pet  *-- "0..*"  Tag
+PetApi -->    Pet
+PetApi -->    ApiResponse
+StoreApi -->    Order
+UserApi -->    User
 
 
 @enduml

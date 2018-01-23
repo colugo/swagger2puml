@@ -1,0 +1,44 @@
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+
+buildscript {
+
+		ext.swaggerparser = '1.0.33'
+		ext.mustache = '0.8.18'
+		ext.junit = '3.8.1'
+		ext.plantuml = '7999'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'swagger2puml-core/src/main/java/'
+        }
+        resources {
+            srcDir 'swagger2puml-core/src/main/resources/'
+        }
+    }
+}
+
+mainClassName = 'com.kicksolutions.swagger.Swagger2PlantUML'
+
+repositories{
+	jcenter()
+}
+
+
+dependencies {
+    //testCompile "junit:junit:$junit"
+    compile "io.swagger:swagger-parser:$swaggerparser"
+    compile "com.github.spullara.mustache.java:compiler:$mustache"
+    compile "net.sourceforge.plantuml:plantuml:$plantuml"
+}
+
+
+run {
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
+}

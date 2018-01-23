@@ -1,0 +1,56 @@
+@startuml
+hide empty members
+set namespaceSeparator none
+
+skinparam class {
+	BackgroundColor PaleGreen
+	ArrowColor RoyalBlue
+	BorderColor DimGray
+}
+
+class  Definition {
+	 - name <b>:String</b>
+	 - domain <b>:String</b>
+	 - definition <b>:String</b>
+	 - guidance <b>:String</b>
+	 - identifier <b>:Uri</b>
+	 - usage <b>:String[]</b>
+}
+
+class  Results {
+	 - content <b>:Definition[]</b>
+	 - numberOfElements <b>:Integer</b>
+	 - firstPage <b>:Boolean</b>
+	 - lastPage <b>:Boolean</b>
+	 - totalPages <b>:Integer</b>
+	 - id <b>:Link[]</b>
+	 - links <b>:Link[]</b>
+}
+
+class  Link {
+	 - rel <b>:String</b>
+	 - href <b>:String</b>
+}
+
+
+interface DefinitionsApi {
+	 + <i>null(String domain,String id)</i><b>:Definition</b> 
+}
+
+interface DefinitionsApi {
+	 + <i>null(Integer page,Integer size)</i><b>:Results</b> 
+}
+
+interface SearchApi {
+	 + <i>null(String query,String domain,Integer page,Integer size)</i><b>:Results</b> 
+}
+
+
+Results  *-- "0..*"  Definition
+Results  *-- "0..*"  Link
+DefinitionsApi -->    Definition
+DefinitionsApi -->    Results
+SearchApi -->    Results
+
+
+@enduml
